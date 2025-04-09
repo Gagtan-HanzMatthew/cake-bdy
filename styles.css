@@ -1,0 +1,126 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fce4ec;
+    margin: 0;
+}
+
+.cake {
+    position: relative;
+    width: 200px;
+    height: 150px;
+    background-color: #ff80ab;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.cake-body {
+    position: relative;
+    width: 200px;
+    height: 150px;
+    background-color: transparent; /* Make the base transparent */
+    border-radius: 10px;
+    overflow: hidden; /* Ensure layers stay within the cake body */
+}
+
+.cake-layer {
+    width: 100%;
+    position: absolute;
+    left: 0;
+}
+
+.layer1 {
+    height: 50px;
+    background-color: #ff80ab; /* Top layer color */
+    top: 0;
+}
+
+.layer2 {
+    height: 50px;
+    background-color: #d81b60; /* Middle layer color */
+    top: 50px;
+}
+
+.layer3 {
+    height: 50px;
+    background-color: #ad1457; /* Bottom layer color */
+    top: 100px;
+}
+
+.cake-body::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #ff4081; /* Icing color */
+    border-radius: 0 0 50% 50%;
+    z-index: 1;
+}
+
+.cake-body::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: radial-gradient(circle at 10% 50%, #ff4081 20%, transparent 20%),
+                radial-gradient(circle at 30% 50%, #ff4081 20%, transparent 20%),
+                radial-gradient(circle at 50% 50%, #ff4081 20%, transparent 20%),
+                radial-gradient(circle at 70% 50%, #ff4081 20%, transparent 20%),
+                radial-gradient(circle at 90% 50%, #ff4081 20%, transparent 20%);
+    background-size: 20px 40px;
+    background-repeat: repeat-x;
+    z-index: 2;
+}
+
+.candles {
+    position: absolute;
+    top: -50px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.candle {
+    position: relative;
+    width: 10px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.flame {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 15px;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 5px rgba(255, 204, 0, 0.5);
+    animation: flicker 0.2s infinite alternate ease-in-out;
+}
+
+@keyframes flicker {
+    0% {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+        box-shadow: 0 0 10px 5px rgba(255, 204, 0, 0.5);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.1);
+        opacity: 0.9;
+        box-shadow: 0 0 12px 6px rgba(255, 204, 0, 0.6);
+    }
+    100% {
+        transform: translateX(-50%) scale(0.9);
+        opacity: 0.8;
+        box-shadow: 0 0 8px 4px rgba(255, 204, 0, 0.4);
+    }
+}

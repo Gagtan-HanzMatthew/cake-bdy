@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Birthday Cake</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Revert to the relight button -->
+    <button id="relight-button" style="
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        background-color: #ff80ab;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        font-size: 14px;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    ">Relight</button>
+
+    <div class="cake">
+        <div class="candles">
+            <div class="candle" id="candle1">
+                <div class="flame"></div>
+            </div>
+            <div class="candle" id="candle2">
+                <div class="flame"></div>
+            </div>
+            <div class="candle" id="candle3">
+                <div class="flame"></div>
+            </div>
+        </div>
+        <div class="cake-body">
+            <div class="cake-layer layer1"></div>
+            <div class="cake-layer layer2"></div>
+            <div class="cake-layer layer3"></div>
+        </div>
+    </div>
+
+    <!-- Add audio element for Happy Birthday song -->
+    <audio id="happy-birthday-audio" src="happy-birthday.mp3" preload="auto"></audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
